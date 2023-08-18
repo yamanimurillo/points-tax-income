@@ -81,28 +81,27 @@ const TaxCalculator: React.FC<TaxCalculatorProps> = () => {
                                 </Box>
                             
                                 <Box mt={3}>
-                                    <Field as={FormControl} fullWidth>
-                                        <InputLabel htmlFor="year" sx={{ bgcolor: 'white', pl:1, pr: 1 }}>
-                                            Select tax year
-                                        </InputLabel>
-                                        <Select 
+                                    <FormControl fullWidth variant="outlined">
+                                        <InputLabel id="year-label">Select tax year</InputLabel>
+                                        <Field
+                                            as={Select}
+                                            labelId="year-label"
+                                            label="Select tax year"
+                                            id="year"
+                                            name="year"
                                             data-testid="year-select"
-                                            labelId="year" 
-                                            id="year" 
-                                            name="year" 
                                             value={values.year}
                                         >
-                                            {yearOptions.map((year) => (
-                                                <MenuItem 
-                                                    id={year.toString()}
-                                                    key={year} 
-                                                    value={year}
-                                                >
+                                        {yearOptions.map((year) => (
+                                            <MenuItem 
+                                                key={year} 
+                                                value={year}
+                                            >
                                                 {year}
-                                                </MenuItem>
-                                            ))}
-                                        </Select>
-                                    </Field>
+                                            </MenuItem>
+                                        ))}
+                                        </Field>
+                                    </FormControl>
                                 </Box>
 
                                 <Box mt={3}>
